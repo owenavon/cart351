@@ -1,0 +1,86 @@
+body {
+    font-family: "calibri", sans-serif;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+h1 {
+  font-size: 36px;
+  font-family: "calibri", sans-serif;
+  text-align: center;
+}
+
+#video {
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    width: 320px;
+    height: 240px;
+}
+
+#photo {
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    width: 320px;
+    height: 240px;
+}
+
+#canvas {
+    display: none;
+}
+
+.camera {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.output {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#capture-button {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ff0000;
+    border-style: solid;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: "calibri", sans-serif;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#download-button {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #000000;
+    border-style: solid;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: "calibri", sans-serif;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.content-area {
+    font-size: 16px;
+    font-family: "calibri", sans-serif;
+    width: auto;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 75px;
+    background-color: #ffffff;
+}
