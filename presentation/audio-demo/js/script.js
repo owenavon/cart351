@@ -34,6 +34,7 @@
 
   mediaRecorder.addEventListener('dataavailable', function(event) { // dataavailable fires when mediaRecorder delivers media.
     if (event.data.size > 0) recordedChunks.push(event.data); // If audio is inputed, it is saved in recordedChunks
+    // console.log(event.data.size);
   });
 
   // Event listener upon stop button
@@ -100,7 +101,7 @@
     visualizerPlayer.src = URL.createObjectURL(new Blob(recordedChunks)); // Assigns the recorded audio input src to visualizerPlayer.
     srcAudio.connect(analyser); // Appends srcAudio to analyser
     analyser.connect(context.destination);
-    analyser.fftSize = TWO_FIVE_SIX; // Represnts window size in samples when getting data.
+    analyser.fftSize = TWO_FIVE_SIX; // Represents window size in samples when getting data.
 
     let bufferLength = analyser.frequencyBinCount; // Assigns bufferLength to frequencyBinCount as a read only property for the analyser node. (128 bitrate)
     let dataArray = new Uint8Array(bufferLength); // Assigns dataArray to special array of 8-bit unsigned integers.
@@ -135,8 +136,7 @@
   }; // Function Stream
 
 
-  // Get user media via mediaStream API once media devices have been intialized.
-  navigator.mediaDevices.getUserMedia({ // Prompts the user for permission to use media input.
+  navigator.mediaDevices.getUserMedia({ // Get user media via mediaStream API once media devices have been intialized
     audio: true, // Access and collects user audio
     video: false // Declines video access
   }).then(handleSuccess); // Proccess the collected data
