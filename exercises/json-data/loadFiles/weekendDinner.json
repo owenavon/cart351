@@ -1,0 +1,42 @@
+[
+  {
+  "Friday": [
+    "Ramen",
+    "Vegetarian",
+    "Umami Ramen & Izakaya",
+    "20:30",
+    "Montreal",
+    "Quebec"
+    ]
+  },
+  {
+  "Saturday": [
+    "Chicken Breast & Vegetables",
+    "Poultry",
+    "Aquatopia Water Garden Conservatory",
+    "20:00",
+    "Ottawa",
+    "Ontario"
+    ]
+  },
+  {
+  "Sunday": [
+    "Turkey & Vegetables",
+    "Poultry",
+    "Home",
+    "18:00",
+    "Cantley",
+    "Quebec"
+    ]
+  },
+  {
+  "Monday": [
+    "Homemade Pizza",
+    "Pork",
+    "Home",
+    "19:00",
+    "Cantley",
+    "Quebec"
+    ]
+  }
+]
