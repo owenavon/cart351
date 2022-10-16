@@ -1,42 +1,48 @@
-[
-  {
-  "Friday": [
-    "Ramen",
-    "Vegetarian",
-    "Umami Ramen & Izakaya",
-    "20:30",
-    "Montreal",
-    "Quebec"
-    ]
-  },
-  {
-  "Saturday": [
-    "Chicken Breast & Vegetables",
-    "Poultry",
-    "Aquatopia Water Garden Conservatory",
-    "20:00",
-    "Ottawa",
-    "Ontario"
-    ]
-  },
-  {
-  "Sunday": [
-    "Turkey & Vegetables",
-    "Poultry",
-    "Home",
-    "18:00",
-    "Cantley",
-    "Quebec"
-    ]
-  },
-  {
-  "Monday": [
-    "Homemade Pizza",
-    "Pork",
-    "Home",
-    "19:00",
-    "Cantley",
-    "Quebec"
-    ]
-  }
-]
+{
+  "food": [
+    {
+      "day": "Friday",
+      "type": "Ramen", 
+      "meat": "Vegetarian", 
+      "location": "Umami Ramen & Izakaya",
+      "time": "20:30",
+      "city": [
+        "Montreal",
+        "Quebec"
+      ]
+    },
+    {
+      "day": "Saturday",
+      "type": "Chicken Breast & Vegetables", 
+      "meat": "Poultry", 
+      "location": "Aquatopia Water Garden Conservatory",
+      "time": "20:00",
+      "city": [
+        "Ottawa",
+        "Ontario"
+      ]
+    }, 
+    {
+      "day": "Sunday",
+      "type": "Turkey & Vegetables", 
+      "meat": "Poultry", 
+      "location": "Home",
+      "time": "18:00",
+      "city": [
+        "Cantley",
+        "Quebec"
+      ]
+    }, 
+    {
+      "day": "Monday",
+      "type": "Homemade Pizza", 
+      "meat": "Pork", 
+      "location": "Home",
+      "time": "19:00",
+      "city": [
+        "Cantley",
+        "Quebec"
+      ]
+    }
+  ]
+}
