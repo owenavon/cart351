@@ -1,0 +1,40 @@
+
+html {
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+#getData {
+    margin: 2%;
+}
+
+.body-wrapper {
+    width:70%;
+    margin-left:15%;
+    background: #6699ff;
+    padding-bottom:10px;
+}
+
+h2.mainHead {
+    text-align:center;
+    color:white;
+    background:#3377ff;
+    padding:2px;   
+}
+
+.inputFieldTest {
+    margin:2%;
+    background:#3377ff;
+    color:white;
+}
+   
+#result-container {
+    margin:2%;
+    background:#ccddff;
+    padding:2%;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.food-list {
+    font-family: 'Courier New', Courier, monospace;
+}
