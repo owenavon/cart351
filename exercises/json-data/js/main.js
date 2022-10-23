@@ -1,64 +1,89 @@
 
-let days = []; // Array that JSON Data gets assigned to
+let days = []; // Empty array that food objects get pushed to
+let enterDays = []; // Empty array that typed food objects get pushed to
 
 $(document).ready(function() {
-  $("button").one("click", function() { // Registers a one-shot handler that only runs once 
-    displayJSON(); // Calls the displayJSON function
-  });
 
+$.getJSON('./loadFiles/weekendDinner.json',function(data) {
+  console.log(data.food);
 
+    $('#chosen-day').keyup(function(e) {
+        if (e.keyCode == 13) {
 
-//   //:: fINaLgetJson:
-// $.getJSON('loadFiles/daysTest.json',function(data) {
-//   //success
-//     //step 1: console.log the result
-//     console.log(data[0].day);
-//     //2 :: wait for key up
-//     $('#daySelect').keyup(function(e) {
-//          //test if enter is pressed
-//          if (e.keyCode == 13) {
-//           console.log($('#daySelect').val());
-//           let searchCrit = $('#daySelect').val()
-   
-//           let filteredResults = data.filter(getDayComp);
-//           console.log(filteredResults);
-//           //could now display those results :)
-//          }
-  
-//          function getDayComp(currentObj) {
-//           if(currentObj.day===$('#daySelect').val()){
-//               return currentObj;
-//           }
-//         }
-//       });
-//   })
-//   //fail
-//   .fail(function() {
-//       console.log( "error" );
-//   });
-  
+          days = [];
+          $('.food-list').fadeIn(5000); // NOT WORKING
+          
+          console.log($('#chosen-day').val());
+          let searchCrit = $('#chosen-day').val()
 
+          let filteredResults = data.food.filter(getDay);
+          console.log(filteredResults);
 
-  function displayJSON() {
-    $.getJSON("./loadFiles/weekendDinner.json", function(data) {
-      for (let i = 0; i < data.food.length; i++) { // For loop to run through each object
+          enterDays.push($('#chosen-day').val());
+          for (let i = 0; i < data.food.length; i++) { // For loop to run through each object
+            $.each (filteredResults[i], function(key, val) {
+              days.push( "<li id='" + key + "'>" + val + "</li>" ); // Displays new items in array as list
+            });
 
-        // console.log(data.food[i]);
-        $.each (data.food[i], function(key, val) {
-          days.push( "<li id='" + key + "'>" + val + "</li>" );
-        });
+            if (enterDays.length > 0) {
+              $("#result-container").empty(); // Clears Result container so only one object appears at once
+            }
+          }
+    
+          $("<ul/>", {
+            "class": "food-list", html: days.join("") // Returns array as a string into the class, food-list
+          }).appendTo("#result-container"); // Displays result inside specified ID
+          
+          responsiveVoice.speak(document.getElementById("result-container").textContent); // Reads results to user via Responsvive Voice API
 
-        if (i >= 0) { // Creates break between objects
-          console.log(data.food);
-          days.push("<br>");
+          
         }
-      }
+  
+        function getDay(currentObj) {
+          if (currentObj.day===$('#chosen-day').val()){
+            return currentObj;
+          }
+        }
+      });
 
-      $( "<ul/>", {
-        "class": "food-list",
-        html: days.join("")
-      }).appendTo("#result-container"); // Displays result inside specified ID
+
+
+
+
+
+
+
+    })
+    .fail(function() {
+        console.log( "error" );
     });
-  }
-
+  
 });
+
+
+
+
+
+
+
+
+
+
+
+// if (enterDays.length === 0) {
+            
+          // }
+          
+          // for (let i = 0; i < enterDays.length; i++) {
+          //   if (enterDays[i] !== $('#chosen-day').val()) {
+          //     enterDays.push($('#chosen-day').val());
+          //     console.log('test');
+          //     console.log(enterDays);
+  
+          //     for (let i = 0; i < data.food.length; i++) { // For loop to run through each object
+          //       $.each (filteredResults[i], function(key, val) {
+          //         days.push( "<li id='" + key + "'>" + val + "</li>" );
+          //       });
+          //     }
+          //   }
+          // }

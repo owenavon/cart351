@@ -21,7 +21,13 @@ h2.mainHead {
     padding:2px;   
 }
 
-.inputFieldTest {
+.instructions {
+    margin:2%;
+    background:#3377ff;
+    color:white;
+}
+
+.days {
     margin:2%;
     background:#3377ff;
     color:white;
@@ -36,5 +42,9 @@ h2.mainHead {
 }
 
 .food-list {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: calibri, sans-serif;
+}
+
+ul {
+    list-style-type: none;
 }
