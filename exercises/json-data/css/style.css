@@ -3,42 +3,96 @@ html {
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
 }
 
-#getData {
-    margin: 2%;
+.flex-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    height: auto;
+}
+
+.main-content {
+    background-color: #5A5A5A;
+    border-radius: 25px;
+    margin: 25px;
+    margin-top: 100px;
+    padding: 40px;
+    width: 100%;
+    opacity: 0.7;
+    transition: transform 0.2s ease-in-out;
 }
 
 .body-wrapper {
-    width:70%;
-    margin-left:15%;
+    width: 70%;
+    margin-left: 15%;
     background: #6699ff;
-    padding-bottom:10px;
+    padding-bottom: 10px;
+    border-radius: 25px;
 }
 
-h2.mainHead {
+h2.title-box {
     text-align:center;
-    color:white;
+    color:#ffffff;
     background:#3377ff;
-    padding:2px;   
-}
-
-.instructions {
-    margin:2%;
-    background:#3377ff;
-    color:white;
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 0px;
 }
 
 .days {
     margin:2%;
     background:#3377ff;
-    color:white;
+    color:#ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
 }
-   
+
+.input-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    height: auto;
+    padding: 25px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+input[type=text] {
+    padding:10px;
+    margin:10px 0;
+    border-radius: 15px;
+    border-style: none;
+    width: 25%;
+  }
+
+#enter-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    margin-bottom: 40px;
+}
+
 #result-container {
     margin:2%;
-    background:#ccddff;
+    background:#ffffff;
     padding:2%;
-    display:flex;
+    
     flex-wrap:wrap;
+    border-radius: 25px;
 }
 
 .food-list {
@@ -47,4 +101,10 @@ h2.mainHead {
 
 ul {
     list-style-type: none;
+}
+
+.map {
+    /* Set the map's width and height */
+    height: 300px;
+    border-radius: 25px;
 }

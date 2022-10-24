@@ -6,17 +6,33 @@
     <title>JSON Data</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=B4UO83HM"></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/> 
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+    crossorigin=""></script>
+
     <link rel="stylesheet" href="./css/style.css">
   </head>
 
   <body>
-    <div class="body-wrapper">
-      <h2 class="mainHead">What did I eat on...</h2>
-      <p class="instructions">Type in one the indiacted days below, followed by "Enter".</p>
-      <p class="days"><span>Friday | Saturday | Sunday | Monday </span><input type="text" id="chosen-day" value=""></p>
-      
-      <section id="result-container"></section>
+    <div class="flex-parent">
+      <div class="main-content">
+        <h2 class="title-box">What did I eat on...</h2>
+        <p class="days">Friday | Saturday | Sunday | Monday</p>
 
+        <span class="input-field"><input type="text" id="chosen-day" value="Type in one of the above days"></span>
+        <button type="enter-button" id="enter-button">Submit</button>
+        
+        <section id="result-container">
+          <div class="map" id="map1"></div>
+          <!-- <div class="map" id="map2"></div>
+          <div class="map" id="map3"></div>
+          <div class="map" id="map4"></div> -->
+        </section>
+      </div>
     </div>
   </body>
   
