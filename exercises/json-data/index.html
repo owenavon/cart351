@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<!--  this is the edited version -->
 <html>
   <head>
     <meta charset="utf-8">
-    <title>JSON Data</title>
+    <title>JSON Data - Owen Avon</title>
+
+    <!-- Jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- Responsive Voice API -->
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=B4UO83HM"></script>
     
+    <!-- Leaflet API -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
     crossorigin=""/> 
@@ -14,24 +18,38 @@
     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
     crossorigin=""></script>
 
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="./css/style.css">
   </head>
 
   <body>
     <div class="flex-parent">
       <div class="main-content">
-        <h2 class="title-box">What did I eat on...</h2>
+        <h2 class="title-box">What & where did I eat on...</h2>
         <p class="days">Friday | Saturday | Sunday | Monday</p>
 
-        <span class="input-field"><input type="text" id="chosen-day" value="Type in one of the above days"></span>
+        <span class="input-field"><input type="text" id="chosen-day" value="Type date..."></span>
         <button type="enter-button" id="enter-button">Submit</button>
         
         <section id="result-container">
-          <div class="map" id="map1"></div>
-          <!-- <div class="map" id="map2"></div>
-          <div class="map" id="map3"></div>
-          <div class="map" id="map4"></div> -->
         </section>
+
+        <section id="map-container-one">
+          <div class="map" id="map1"></div>
+        </section>
+
+        <section id="map-container-two">
+          <div class="map" id="map2"></div>
+        </section>
+
+        <section id="map-container-three">
+          <div class="map" id="map3"></div>
+        </section>
+
+        <section id="map-container-four">
+          <div class="map" id="map4"></div>
+        </section>
+
       </div>
     </div>
   </body>

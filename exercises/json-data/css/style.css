@@ -1,6 +1,17 @@
-
 html {
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+.main-content {
+    background-color: #5A5A5A;
+    border-radius: 25px;
+    margin: 25px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 40px;
+    width: 100%;
+    opacity: 0.7;
+    transition: transform 0.2s ease-in-out;
 }
 
 .flex-parent {
@@ -14,29 +25,10 @@ html {
     height: auto;
 }
 
-.main-content {
-    background-color: #5A5A5A;
-    border-radius: 25px;
-    margin: 25px;
-    margin-top: 100px;
-    padding: 40px;
-    width: 100%;
-    opacity: 0.7;
-    transition: transform 0.2s ease-in-out;
-}
-
-.body-wrapper {
-    width: 70%;
-    margin-left: 15%;
-    background: #6699ff;
-    padding-bottom: 10px;
-    border-radius: 25px;
-}
-
 h2.title-box {
     text-align:center;
-    color:#ffffff;
-    background:#3377ff;
+    color:#000000;
+    background:#c5dfbb;
     padding: 15px;
     border-radius: 20px;
     margin-top: 0px;
@@ -44,8 +36,8 @@ h2.title-box {
 
 .days {
     margin:2%;
-    background:#3377ff;
-    color:#ffffff;
+    background:#c5dfbb;
+    color:#000000;
     padding: 10px;
     border-radius: 20px;
     text-align: center;
@@ -84,13 +76,18 @@ input[type=text] {
     border-radius: 10px;
     border-style: none;
     margin-bottom: 40px;
+    background: #ffffff;
+}
+
+#enter-button:hover {
+    cursor: pointer;
+    background: #c5dfbb;
 }
 
 #result-container {
-    margin:2%;
+    margin:20px;
     background:#ffffff;
-    padding:2%;
-    
+    padding:20px;
     flex-wrap:wrap;
     border-radius: 25px;
 }
@@ -104,7 +101,38 @@ ul {
 }
 
 .map {
-    /* Set the map's width and height */
     height: 300px;
+    border-radius: 25px;
+}
+
+#map-container-one {
+    margin:20px;
+    background:#ffffff;
+    padding:20px;
+    flex-wrap:wrap;
+    border-radius: 25px;
+}
+
+#map-container-two {
+    margin:20px;
+    background:#ffffff;
+    padding:20px;
+    flex-wrap:wrap;
+    border-radius: 25px;
+}
+
+#map-container-three {
+    margin:20px;
+    background:#ffffff;
+    padding:20px;
+    flex-wrap:wrap;
+    border-radius: 25px;
+}
+
+#map-container-four {
+    margin:20px;
+    background:#ffffff;
+    padding:20px;
+    flex-wrap:wrap;
     border-radius: 25px;
 }
