@@ -1,6 +1,0 @@
-Riddle 1:hello
-Test
-Riddle 1:hello
-Test
-Riddle 1:hello
-Test

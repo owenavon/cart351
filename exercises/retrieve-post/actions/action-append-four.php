@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET') {
     if(isset($_GET['key'])) {
         // echo($_GET['key']);
         $theFile = fopen("../files/poems.txt", "a") or die("Unable to open file!");
-        fwrite($theFile, "A Question: \n");
+        fwrite($theFile, "The Dream Keeper: \n");
         $txt2 =  $_GET['key'] . "\n";
         fwrite($theFile, $txt2);
         fwrite($theFile, "\n"); // Paragraph return
