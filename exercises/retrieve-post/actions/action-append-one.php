@@ -4,6 +4,8 @@
 //nOTE  - "a" appends ...
 if($_SERVER['REQUEST_METHOD'] == 'GET') {
     if(isset($_GET['key'])) {
+
+        file_put_contents("../files/poems.txt", ""); // Resets the poems.txt file
         // echo($_GET['key']);
         $theFile = fopen("../files/poems.txt", "a") or die("Unable to open file!");
         fwrite($theFile, "Insomniac: \n");

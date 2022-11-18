@@ -13,7 +13,16 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <p>There are some nights when sleep plays coy, aloof and disdainful. And all the wiles that I employ to win its service to my side are useless as wounded pride,and much more painful.</p>
+                <ul>
+                    <li>There are some nights when</li>
+                    <li>sleep plays coy,</li>
+                    <li>aloof and disdainful.</li>
+                    <li>And all the wiles</li>
+                    <li>that I employ to win</li>
+                    <li>its service to my side</li>
+                    <li>are useless as wounded pride,</li>
+                    <li>and much more painful.</li>
+                </ul>
             </div>
 
             <!-- Modal Footer -->

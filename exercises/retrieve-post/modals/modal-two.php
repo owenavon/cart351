@@ -13,7 +13,13 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <p>A voice said, Look me in the stars And tell me truly, men of earth, If all the soul-and-body scars Were not too much to pay for birth.</p>
+                <ul>
+                    <li>A voice said,</li>
+                    <li>Look me in the stars</li>
+                    <li>And tell me truly, men of earth,</li>
+                    <li>If all the soul-and-body scars</li>
+                    <li>Were not too much to pay for birth.</li>
+                </ul>
             </div>
 
             <!-- Modal Footer -->

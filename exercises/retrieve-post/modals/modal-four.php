@@ -13,7 +13,16 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <p>Bring me all of your dreams, You dreamer, Bring me all your Heart melodies That I may wrap them In a blue cloud-cloth Away from the too-rough fingers Of the world.</p>
+                <ul>
+                    <li>Bring me all of your dreams,</li>
+                    <li>You dreamer,</li>
+                    <li>Bring me all your</li>
+                    <li>Heart melodies</li>
+                    <li>That I may wrap them</li>
+                    <li>In a blue cloud-cloth</li>
+                    <li>Away from the too-rough fingers</li>
+                    <li>Of the world.</li>
+                </ul>
             </div>
 
             <!-- Modal Footer -->

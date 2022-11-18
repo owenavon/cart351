@@ -13,7 +13,12 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <p>Said Hamlet to Ophelia, I'll draw a sketch of thee, What kind of pencil shall I use? 2B or not 2B?</p>
+                <ul>
+                    <li>Said Hamlet to Ophelia,</li>
+                    <li>I'll draw a sketch of thee,</li>
+                    <li>What kind of pencil shall I use?</li>
+                    <li>2B or not 2B?</li>
+                </ul>
             </div>
 
             <!-- Modal Footer -->

@@ -13,7 +13,16 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <p>Nature's first green is gold, Her hardest hue to hold. Her early leaf's a flower; But only so an hour. Then leaf subsides to leaf, So Eden sank to grief, So dawn goes down to day Nothing gold can stay.</p>
+                <ul>
+                    <li>Nature's first green is gold,</li>
+                    <li>Her hardest hue to hold.</li>
+                    <li>Her early leaf's a flower;</li>
+                    <li>But only so an hour.</li>
+                    <li>Then leaf subsides to leaf,</li>
+                    <li>So Eden sank to grief,</li>
+                    <li>So dawn goes down to day</li>
+                    <li>Nothing gold can stay.</li>
+                </ul>
             </div>
 
             <!-- Modal Footer -->

@@ -34,10 +34,6 @@ $(document).ready(function(){
     $("#poemFiveOkay").click(function(){
         $("#downloadTxtFile").append("Download Poems");
     });
-
-
-    // for more than just one date
-    let datesArray = [$("#15btn"), $("#5btn"), $("#28btn"), $("#19btn"), $("#9btn")];
     
 
     // Poems from https://www.poemhunter.com/
@@ -49,7 +45,7 @@ $(document).ready(function(){
         // Appends poem to log and adds the class of active to dates specified in the datesArray
         $.ajax({
             type: "GET",
-            url: "../actions/action-append-one.php",
+            url: "../../actions/action-append-one.php",
             dataType: "text", /*response will be text */
             data: $.param({ key: "There are some nights when sleep plays coy, aloof and disdainful. And all the wiles that I employ to win its service to my side are useless as wounded pride,and much more painful."}), // Data, encoded with param
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -61,6 +57,7 @@ $(document).ready(function(){
                 console.log("Poem 1 Success!");
 
                 $("#5btn").addClass("active");
+                $("#15btn").removeClass("active");
 
                 // console.log(response);
                 let jsonResponse = JSON.parse(response);
@@ -90,7 +87,7 @@ $(document).ready(function(){
         // Appends poem to log and adds the class of active to dates specified in the datesArray
         $.ajax({
             type: "GET",
-            url: "../actions/action-append-two.php",
+            url: "../../actions/action-append-two.php",
             dataType: "text", /*response will be text */
             data: $.param({ key: "A voice said, Look me in the stars And tell me truly, men of earth, If all the soul-and-body scars Were not too much to pay for birth."}), // Data, encoded with param
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -102,6 +99,7 @@ $(document).ready(function(){
                 console.log("Poem 2 Success");
 
                 $("#28btn").addClass("active");
+                $("#5btn").removeClass("active");
 
                 // console.log(response);
                 let jsonResponse = JSON.parse(response);
@@ -131,7 +129,7 @@ $(document).ready(function(){
         // Appends poem to log and adds the class of active to dates specified in the datesArray
         $.ajax({
             type: "GET",
-            url: "../actions/action-append-three.php",
+            url: "../../actions/action-append-three.php",
             dataType: "text", /*response will be text */
             data: $.param({ key: "Said Hamlet to Ophelia, I'll draw a sketch of thee, What kind of pencil shall I use? 2B or not 2B?"}), // Data, encoded with param
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -143,6 +141,7 @@ $(document).ready(function(){
                 console.log("Poem 3 Success");
 
                 $("#19btn").addClass("active");
+                $("#28btn").removeClass("active");
 
                 // console.log(response);
                 let jsonResponse = JSON.parse(response);
@@ -172,7 +171,7 @@ $(document).ready(function(){
         // Appends poem to log and adds the class of active to dates specified in the datesArray
         $.ajax({
             type: "GET",
-            url: "../actions/action-append-four.php",
+            url: "../../actions/action-append-four.php",
             dataType: "text", /*response will be text */
             data: $.param({ key: "Bring me all of your dreams, You dreamer, Bring me all your Heart melodies That I may wrap them In a blue cloud-cloth Away from the too-rough fingers Of the world."}), // Data, encoded with param
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -184,6 +183,7 @@ $(document).ready(function(){
                 console.log("Poem 4 Success");
 
                 $("#9btn").addClass("active");
+                $("#19btn").removeClass("active");
 
                 // console.log(response);
                 let jsonResponse = JSON.parse(response);
@@ -213,7 +213,7 @@ $(document).ready(function(){
         // Appends poem to log and adds the class of active to dates specified in the datesArray
         $.ajax({
             type: "GET",
-            url: "../actions/action-append-five.php",
+            url: "../../actions/action-append-five.php",
             dataType: "text", /*response will be text */
             data: $.param({ key: "Nature's first green is gold, Her hardest hue to hold. Her early leaf's a flower; But only so an hour. Then leaf subsides to leaf, So Eden sank to grief, So dawn goes down to day Nothing gold can stay."}), // Data, encoded with param
             contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -223,6 +223,8 @@ $(document).ready(function(){
             success: function (response) {
                 //reponse is a STRING (not a JavaScript object -> so we need to convert)
                 console.log("Poem 5 Success");
+
+                $("#9btn").removeClass("active");
 
                 // console.log(response);
                 let jsonResponse = JSON.parse(response);
