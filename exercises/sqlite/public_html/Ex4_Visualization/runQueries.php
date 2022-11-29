@@ -43,22 +43,22 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
 
   if($_GET["select-query"]==="three"){
     //TO IMPLEMENT:
-    $selectedQuery = "SELECT * FROM dataStuff WHERE after_mood = 'happy' AND 'neutral' AND 'calm' AND 'serene' AND 'well'";
+    $selectedQuery = "SELECT * FROM dataStuff WHERE after_mood = 'happy' OR after_mood = 'neutral' OR after_mood = 'calm' OR after_mood = 'serene' OR after_mood = 'well'";
   }
 
   if($_GET["select-query"]==="four"){
     //TO IMPLEMENT:
-    $selectedQuery = "SELECT * FROM dataStuff ORDER BY 'events.eventName'"; // same result as 'events(eventName)'
+    $selectedQuery = "SELECT * FROM dataStuff,events WHERE dataStuff.eID = events.eventID ORDER BY eventName";
   }
 
   if($_GET["select-query"]==="five"){
     //TO IMPLEMENT:
-    $selectedQuery = "SELECT * FROM dataStuff WHERE day = 'Monday' AND day = 'Tuesday' ORDER BY event_affect_strength";
+    $selectedQuery = "SELECT * FROM dataStuff WHERE day = 'Monday' OR day = 'Tuesday' ORDER BY event_affect_strength";
   }
 
   else if($_GET["select-query"]==="six"){
     //TO IMPLEMENT:
-    $selectedQuery = "SELECT * FROM dataStuff WHERE start_mood AND after_mood = 'sad' AND 'angry' AND 'neutral' AND 'calm' AND 'anxious' AND 'moody' AND 'hurt' ORDER BY weather";
+    $selectedQuery = "SELECT * FROM dataStuff WHERE (start_mood = 'sad' OR start_mood = 'angry' OR start_mood = 'neutral' OR start_mood = 'calm' OR start_mood = 'anxious' OR start_mood = 'moody' OR start_mood = 'hurt') AND (after_mood = 'sad' OR after_mood = 'angry' OR after_mood = 'neutral' OR after_mood = 'calm' OR after_mood = 'anxious' OR after_mood = 'moody' OR after_mood = 'hurt') ORDER BY weather";
   }
 
   if($selectedQuery!==""){
