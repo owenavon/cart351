@@ -25,6 +25,7 @@ querySelectDropDown.onchange = function() {
   let copyVal = this.value;
   //will make a get request for the data ...
 
+
   /**************************MODIFY********************/
   $.get("./runQueries.php",{"select-query":copyVal}, function(response)
   {
@@ -59,25 +60,25 @@ querySelectDropDown.onchange = function() {
       ** bonus: if your visualizations(s) are interactive or animate.
       ****/
       case "three":{
-        displayByPostiveMood(parsedJSON);
+        displayByPositiveMood(parsedJSON);
         break;
       }
       case "four":{
-        // TODO
+        displayByAssociatedEventName(parsedJSON,"eventName");
         break;
       }
 
       case "five":{
-        // TODO
+        displayByMondayOrTuesday(parsedJSON);
         break;
       }
       case "six":{
-        // TODO
+        displayByStartMoodAfterMood(parsedJSON);
         break;
       }
       default:{
         console.log("default case");
-            break;
+        break;
       }
 
     } //switch
@@ -95,73 +96,259 @@ querySelectDropDown.onchange = function() {
 
 
 
+/*******************  SIX  ****************************/
+function displayByStartMoodAfterMood(resultSet){
+  //reset
+  let xPos = 0;
+  let yPos= 0;
+  dataPoints =[];
+  const NUM_COLS = 25;
+  const CELL_SIZE = 25;
 
+  let event_weather_colours = ['rgb(255,0,0)', 'rgb(0, 255, 0)','rgb(0, 0, 255)','rgb(255, 0, 0)','rgb(0, 255, 0)','rgb(0, 0, 255)','rgb(255, 0, 0)','rgb(0, 255, 0)','rgb(0, 0, 255)','rgb(255, 0, 0)'];
 
+//set background of parent ... for fun ..
+ document.getElementById("parent-wrapper").style.background = "rgb(255,255,255)";
+  description.textContent = "BY WEATHER";
+  description.style.color = 'rgb(0, 0, 0)';
 
+//last  element is the helper array...
+  for(let i = 0; i < resultSet.length; i++) {
+    for (let j = 0; j < 10; j++) { // 10 event affect strength
+      if(resultSet[i].event_affect_strength == j+1) {
+    
+      dataPoints.push(new myDataPoint(
+        resultSet[i].dataId,
+        resultSet[i].day,
+        resultSet[i].weather,
+        resultSet[i].start_mood,
+        resultSet[i].after_mood,
+        resultSet[i].after_mood_strength,
+        resultSet[i].event_affect_strength,
+        resultSet[i].eID,
+        //map to after_mood...
+        event_weather_colours[j],
+        //last parameter is where should this go...
+        document.getElementById("childOne"),
+        //which css style///
+        "pointRGB" // Increments point class (point0, point1, etc...)
+      ));
 
-  /*******************DISPLAY AS GROUP <THREE>****************************/
-    function displayByPostiveMood(resultSet,propOne,propTwo,PropThree) {
-    // //reset
-    // dataPoints =[];
-    // let xPos = 0;
-    // let yPos= 0;
-    // //for circle drawing
-    // let angle = 0;
-    // let centerX = 400;
-    // let centerY = 350;
-
-    // let scalar= 250;
-    // let yHeight = Math.cos(angle)*scalar+centerY;
-
-
-    // let coloredMoods = {}
-
-    // let possibleMoods = resultSet[resultSet.length-1];
-    // let possibleColors = ['rgba(0, 64, 255,.5)','rgba(26, 83, 255,.5)','rgba(51, 102, 255,.7)','rgba(51, 102, 255,.4)', 'rgba(77, 121,255,.6)','rgba(102, 140, 255,.6)','rgba(128, 159, 255,.4)','rgba(153, 179, 255,.3)','rgba(179, 198, 255,.6)','rgba(204, 217, 255,.4)'];
-
-    // for(let i = 0; i< possibleMoods.length; i++){
-    //   coloredMoods[possibleMoods[i]] = possibleColors[i];
-
-    //   }
-
-    //   //set background of parent ... for fun ..
-    //     document.getElementById("parent-wrapper").style.background = "rgba(125, 0, 200,1)";
-    //     description.textContent = "BY AFTER MOOD";
-    //     description.style.color = 'rgba(0, 64, 255,.5)';
-
-
-
-    //     for(let i = 0; i<resultSet.length-1; i++){
-    //       dataPoints.push(new myDataPoint(resultSet[i].dataId,
-    //         resultSet[i].day,
-    //         resultSet[i].weather,
-    //         resultSet[i].start_mood,
-    //         resultSet[i].after_mood,
-    //         resultSet[i].after_mood_strength,
-    //         resultSet[i].event_affect_strength,
-    //         resultSet[i].eID,
-    //         //map to the day ...
-    //         coloredMoods[resultSet[i].after_mood],
-    //         //last parameter is where should this go...
-    //         document.getElementById("childOne"),
-    //         //which css style///
-    //         "point_two"
-    //       ));
-    //       /*** circle drawing ***/
-    //       xPos = Math.sin(angle)*scalar+centerX;
-    //       yPos = Math.cos(angle)*scalar+centerY;
-    //       angle +=0.13;
-
-    //       if (angle > 2*Math.PI){
-    //         angle =0;
-    //         scalar-=20;
-    //       }
-    //         dataPoints[i].update(xPos,yPos);
-    //         }//for
-
-    //           document.getElementById("childOne").style.height = `${yHeight}px`;
+      //*** drawing a grid ****/
+      if(i%NUM_COLS ===0) {
+        //reset x and inc y (go to next row)
+        xPos =0;
+        yPos+=CELL_SIZE;
+      }
+      else{
+        //just move along in the column
+        xPos+=CELL_SIZE;
+      }
+      //update the position of the data point...
+      dataPoints[i].update(xPos,yPos);
 
     }
+  }
+}
+
+document.getElementById("childOne").style.height = `${yPos+CELL_SIZE}px`;
+       }//function
+
+
+
+
+
+
+
+/*******************  FIVE  ****************************/
+function displayByMondayOrTuesday(resultSet){
+   //reset
+   let xPos = 0;
+   let yPos= 0;
+   dataPoints =[];
+   const NUM_COLS = 25;
+   const CELL_SIZE = 25;
+
+   let event_strength_colours = ['rgb(124,252,0)', 'rgb(50, 205, 50)','rgb(35, 140, 35)','rgb(155, 205, 50)','rgb(45, 140, 90)','rgb(105, 145, 35)','rgb(30, 180, 150)','rgb(150, 250, 150)','rgb(155, 205, 50)','rgb(150, 250, 150)'];
+ 
+ //set background of parent ... for fun ..
+  document.getElementById("parent-wrapper").style.background = "rgb(70,30,25,.4)";
+   description.textContent = "BY EVENT AFFECT STRENGTH";
+   description.style.color = 'rgb(0, 100, 0)';
+ 
+ //last  element is the helper array...
+   for(let i = 0; i < resultSet.length; i++) {
+     for (let j = 0; j < 10; j++) { // 10 event affect strength
+       if(resultSet[i].event_affect_strength == j+1) {
+     
+       dataPoints.push(new myDataPoint(
+         resultSet[i].dataId,
+         resultSet[i].day,
+         resultSet[i].weather,
+         resultSet[i].start_mood,
+         resultSet[i].after_mood,
+         resultSet[i].after_mood_strength,
+         resultSet[i].event_affect_strength,
+         resultSet[i].eID,
+         //map to after_mood...
+         event_strength_colours[j],
+         //last parameter is where should this go...
+         document.getElementById("childOne"),
+         //which css style///
+         `point${j}` // Increments point class (point0, point1, etc...)
+       ));
+
+       //*** drawing a grid ****/
+       if(i%NUM_COLS ===0) {
+         //reset x and inc y (go to next row)
+         xPos =0;
+         yPos+=CELL_SIZE;
+       }
+       else{
+         //just move along in the column
+         xPos+=CELL_SIZE;
+       }
+       //update the position of the data point...
+       dataPoints[i].update(xPos,yPos);
+
+     }
+   }
+ }
+ 
+ document.getElementById("childOne").style.height = `${yPos+CELL_SIZE}px`;
+}//function
+
+        
+
+
+
+
+
+
+
+/*******************  FOUR  ****************************/
+function displayByAssociatedEventName(resultSet){
+//reset
+dataPoints =[];
+let xPos = 0;
+let yPos= 0;
+//for circle drawing
+let angle = 0;
+let centerX = 750;
+let centerY = 350;
+
+let scalar= 250;
+let yHeight = Math.cos(angle)*scalar+centerY;
+
+let event_number_colours = ['rgb(125, 125, 125)','rgb(125, 125, 110)','rgb(125, 125, 80)','rgb(125, 125, 70)','rgb(125, 125, 60)','rgb(125, 125, 50)','rgb(125, 125, 40)','rgb(125, 125, 30)','rgb(125, 125, 20)','rgb(125, 125, 10)'];
+
+  //set background of parent ... for fun ..
+    document.getElementById("parent-wrapper").style.background = "rgb(0, 0, 50)";
+    description.textContent = "BY EVENT NAME";
+    description.style.color = 'rgb(255, 255, 255)';
+
+    for(let i = 0; i<resultSet.length; i++) {
+      for(let j = 0; j < 10; j++) {
+        if(resultSet[i].event_affect_strength == j+1) {
+
+      dataPoints.push(new myDataPoint(resultSet[i].dataId,
+        resultSet[i].day,
+        resultSet[i].weather,
+        resultSet[i].start_mood,
+        resultSet[i].after_mood,
+        resultSet[i].after_mood_strength,
+        resultSet[i].event_affect_strength,
+        resultSet[i].eID,
+        //map to the day ...
+        event_number_colours[j],
+        //last parameter is where should this go...
+        document.getElementById("childOne"),
+        //which css style///
+        "point_two"
+      ));
+
+
+      /*** circle drawing ***/
+      xPos = Math.sin(angle)*scalar+centerX;
+      yPos = Math.cos(angle)*scalar+centerY;
+      angle +=0.1;
+
+      if (angle > 0.5*Math.PI){
+      angle =0;
+      scalar-=40;
+      }
+      dataPoints[i].update(xPos,yPos);
+      }//for
+    }
+    }
+
+      document.getElementById("childOne").style.height = `${yHeight}px`;
+      }//function
+
+
+
+
+
+
+
+  /*******************  THREE  ****************************/
+  function displayByPositiveMood(resultSet) {
+    //reset
+    let xPos = 0;
+    let yPos= 0;
+    dataPoints =[];
+    const NUM_COLS = 25;
+    const CELL_SIZE = 25;
+ 
+    let event_aftermood_strength_colours = ['rgb(124,252,0)', 'rgb(50, 205, 50)','rgb(35, 140, 35)','rgb(155, 205, 50)','rgb(45, 140, 90)','rgb(105, 145, 35)','rgb(30, 180, 150)','rgb(150, 250, 150)','rgb(155, 205, 50)','rgb(0, 100, 0)'];
+  
+  //set background of parent ... for fun ..
+   document.getElementById("parent-wrapper").style.background = "rgba(255,255,75,.4)";
+    description.textContent = "BY POSITIVE MOODS";
+    description.style.color = 'rgb(0, 100, 0)';
+  
+  //last  element is the helper array...
+    for(let i = 0; i < resultSet.length; i++) {
+      for(let j = 0; j < 10; j++) {
+        if(resultSet[i].after_mood_strength == j+1) {
+      
+        dataPoints.push(new myDataPoint(
+          resultSet[i].dataId,
+          resultSet[i].day,
+          resultSet[i].weather,
+          resultSet[i].start_mood,
+          resultSet[i].after_mood,
+          resultSet[i].after_mood_strength,
+          resultSet[i].event_affect_strength,
+          resultSet[i].eID,
+          //map to after_mood...
+          event_aftermood_strength_colours[j],
+          //last parameter is where should this go...
+          document.getElementById("childOne"),
+          //which css style///
+          "point"
+        ));
+
+        //*** drawing a grid ****/
+        if(i%NUM_COLS ===0) {
+          //reset x and inc y (go to next row)
+          xPos =0;
+          yPos+=CELL_SIZE;
+        }
+        else{
+          //just move along in the column
+          xPos+=CELL_SIZE;
+        }
+        //update the position of the data point...
+        dataPoints[i].update(xPos,yPos);
+
+      }
+    }
+  }
+  
+  document.getElementById("childOne").style.height = `${yPos+CELL_SIZE}px`;
+  
+  }
 
 
 
@@ -174,7 +361,7 @@ querySelectDropDown.onchange = function() {
 
 
 
-  /*******************DISPLAY AS GROUP <TWO>****************************/
+  /*******************   TWO   ****************************/
     function displayByGroups(resultSet,propOne,propTwo){
       dataPoints =[];
       let finalHeight =0;
@@ -193,9 +380,7 @@ querySelectDropDown.onchange = function() {
 
         for(let i = 0; i< possibleColors.length; i++){
           coloredEvents[possibleEvents[i]] = possibleColors[i];
-
           }
-
 
       let offsetX =-200;
       let offsetY =150;
@@ -249,7 +434,9 @@ querySelectDropDown.onchange = function() {
 
   } //function
 
-/*****************DISPLAY IN CIRCUlAR PATTERN:: <ONE>******************************/
+
+
+/*****************  ONE  ******************************/
   function displayInCirclularPattern(resultSet){
     //reset
     dataPoints =[];
@@ -262,7 +449,6 @@ querySelectDropDown.onchange = function() {
 
     let scalar= 250;
     let yHeight = Math.cos(angle)*scalar+centerY;
-
 
     let coloredMoods = {}
 
@@ -297,6 +483,8 @@ querySelectDropDown.onchange = function() {
             //which css style///
             "point_two"
           ));
+
+
 /*** circle drawing ***/
 xPos = Math.sin(angle)*scalar+centerX;
 yPos = Math.cos(angle)*scalar+centerY;
@@ -318,7 +506,7 @@ if (angle > 2*Math.PI){
 
 
 
-/*****************DISPLAY AS DEFAULT GRID :: AT ONLOAD ******************************/
+/*****************   DEFAULT   ******************************/
 function displayAsDefault(resultSet){
   //reset
   dataPoints =[];

@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["select-query"]))
 
   if($_GET["select-query"]==="five"){
     //TO IMPLEMENT:
-    $selectedQuery = "SELECT * FROM dataStuff WHERE day = 'Monday' OR day = 'Tuesday' ORDER BY event_affect_strength";
+    $selectedQuery = "SELECT * FROM dataStuff WHERE day = 'Monday' OR day = 'Tuesday' ORDER BY event_affect_strength"; // event_after_strength does not increment in order from 0 - 10 acording to the console. All else seems to be okay. Maybe a problem with data entry?
   }
 
   else if($_GET["select-query"]==="six"){

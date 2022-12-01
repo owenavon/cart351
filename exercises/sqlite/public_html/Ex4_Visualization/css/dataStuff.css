@@ -46,13 +46,13 @@ margin-left:20%;
 color:white;
 }
 
-/* .point_two{
+.point{
 background-color:white;
-width:7px;
-height:7px;
+width:15px;
+height:15px;
 position:absolute;
-border-radius: 3px;
-} */
+border-radius: 5px;
+}
 
 .point_two{
 background-color:white;
@@ -62,13 +62,94 @@ position:absolute;
 border-radius: 5px;
 }
 
-.point{
+.point0{
+background-color:white;
+width:5px;
+height:5px;
+border-radius: 5px;
+position:absolute;
+}
+
+.point1{
+background-color:white;
+width:7px;
+height:7px;
+border-radius: 5px;
+position:absolute;
+}
+
+.point2{
+background-color:white;
+width:9px;
+height:9px;
+border-radius: 5px;
+position:absolute;
+}
+
+.point3{
+background-color:white;
+width:11px;
+height:11px;
+border-radius: 5px;
+position:absolute;
+}
+
+.point4{
+background-color:white;
+width:13px;
+height:13px;
+border-radius: 5px;
+position:absolute;
+}
+
+.point5{
 background-color:white;
 width:15px;
 height:15px;
 border-radius: 5px;
 position:absolute;
 }
+
+.point6{
+background-color:white;
+width:17px;
+height:17px;
+border-radius: 5px;
+position:absolute;
+}
+
+
+.point7{
+background-color:white;
+width:19px;
+height:19px;
+border-radius: 5px;
+position:absolute;
+}
+
+
+.point8{
+background-color:white;
+width:21px;
+height:21px;
+border-radius: 5px;
+position:absolute;
+}
+
+.point9{
+background-color:white;
+width:23px;
+height:23px;
+border-radius: 5px;
+position:absolute;
+}
+
+.pointRGB{
+background-color:white;
+width:850px;
+height:1px;
+}
+
 /* for dropDown*/
 .css-select{
 background: rgba(51,102,255,.6);
